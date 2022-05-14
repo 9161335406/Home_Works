@@ -8,7 +8,9 @@ namespace Lesson_2_HomeWork3
         {
             int a;
             Console.Write("Введите число:");
+
             a = Console.Read();
+
             if (a % 2 == 0)         //Делится на 2 без остатка
             {
                 Console.WriteLine("Число чётное");
