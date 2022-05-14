@@ -11,7 +11,7 @@ namespace Lesson_2_HomeWork3
 
             a = Console.Read();
 
-            if (a % 2 == 0)         //Делится на 2 без остатка
+            if (a % 2 == 0)   //Делится на 2 без остатка
             {
                 Console.WriteLine("Число чётное");
             }
