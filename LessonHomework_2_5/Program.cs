@@ -9,14 +9,17 @@ namespace LessonHomework_2_5
 {
     class Program
     {
-        
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите число от 1 до 3 ");
-            string Number = Console.ReadLine();
+            Random rnd = new Random();
+
+            int temp = rnd.Next(-5, 5);
+
+            Console.WriteLine(rnd);
+
             Console.ReadKey();
         }
-
     }
 }
