@@ -27,7 +27,6 @@ namespace Lesson_3_Homework_2
                     Console.Write($"{contact[i, j]}\t");
                 }
                 Console.WriteLine();
-
             }
             Console.ReadKey();
         }
