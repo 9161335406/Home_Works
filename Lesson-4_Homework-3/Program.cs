@@ -52,6 +52,5 @@ namespace Lesson_4_Homework_3
             }
             while (true);
         }
-
     }
 }
