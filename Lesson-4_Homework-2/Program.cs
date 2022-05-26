@@ -38,11 +38,9 @@ namespace Lesson_4_Homework_2
             Console.WriteLine($"Сумма элементов массива: " + GetSumm());
         }
 
-        static int GetSumm(int[]nArr)
+        static int GetSumm(int[]nArr, int i)
         {
-            
             int rez = 0;
-            int i;
             int[] nArr = new int[]nArr;
             for (i = 0; i < nArr.Length; i++)
             {
