@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 namespace Lesson_4_Homework_1
 {
     class Program
-    {
+    {/// <summary>
+    /// Вывод полных имён участников.
+    /// </summary>
+    /// <param name="args">Полные Имена участников</param>
         public static void Main(string[] args)
         {
             Console.WriteLine("Введите количество объектов");
