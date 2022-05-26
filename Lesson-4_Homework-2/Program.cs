@@ -33,19 +33,31 @@ namespace Lesson_4_Homework_2
 
                 Console.Write(numbArray[i]);
             }
+            Console.WriteLine();
 
-            int Sum = 0;
-
-            for (int i = 0; i < numbArray.Length; i++)
-            {
-
-                Sum += numbArray[i];
-
-            }
-            Console.Write(Sum);
-
-            Console.ReadKey();
+            Console.WriteLine($"Сумма элементов массива: " + GetSumm());
         }
 
+        static int GetSumm()
+        {
+            
+            int rez = 0;
+            int i;
+            int[] nArr = new int[]nArr;
+            for (i = 0; i < nArr.Length; i++)
+            {
+                nArr[i] = i;
+
+            }
+            Console.WriteLine("Содержимое массива: ");
+            for (i = 0; i < nArr.Length; i++)
+            {
+                Console.WriteLine(nArr[i]);
+                rez = nArr.Sum();
+            }
+            Console.WriteLine("Сумма: ");
+
+            return (rez);
+        }
     }
 }
