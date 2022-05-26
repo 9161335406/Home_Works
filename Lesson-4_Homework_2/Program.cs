@@ -41,13 +41,17 @@ namespace Lesson_4_Homework_2
             int result = Sum(numbArray);
 
             Console.WriteLine(result);
-        }
-        static int Sum(int[] myArray, int i = 0)
-        {
-            if (i >= myArray.Length)
-                return 0;
 
-            return myArray[i] = Sum(myArray, i + 1);
+            Console.ReadKey(true);
+        }
+        static int Sum(int[] myArray)
+        {
+            int result = 0;
+            for (int i = 0; i < myArray.Length; i++)
+            {
+              result += myArray[i];
+            }
+           return result;
         }
     }
 }
