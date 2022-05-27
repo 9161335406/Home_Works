@@ -4,7 +4,10 @@ using System.IO;
 namespace Lesson_5_Homework_1
 {
     class Program
-    {
+    {/// <summary>
+    /// 
+    /// </summary>
+    /// <param name="args"></param>
         static void Main(string[] args)
         {
             string filename = "file_txt;";
