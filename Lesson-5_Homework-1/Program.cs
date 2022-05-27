@@ -5,7 +5,6 @@ namespace Lesson_5_Homework_1
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             string filename = "file_txt;";
