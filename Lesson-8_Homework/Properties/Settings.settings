@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Lesson_8_Homework.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Lesson-8_Homework</Value>
+    </Setting>
+    <Setting Name="ApplicationNameDebug" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Settings[Debug]</Value>
+    </Setting>
+    <Setting Name="UsersSettings1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="UsersSettings2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">"Hello student"</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
