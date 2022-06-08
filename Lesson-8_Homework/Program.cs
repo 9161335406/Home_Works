@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lesson_8_Homework
 {
-    internal class Sample02
+    internal class Sample1
     {
 
         public static void Main(string[] args)
