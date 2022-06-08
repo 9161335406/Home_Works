@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Lesson-8_Homework</Value>
     </Setting>
     <Setting Name="ApplicationNameDebug" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Settings[Debug]</Value>
+      <Value Profile="(Default)">Lesson-8_Homework[Debug]</Value>
     </Setting>
     <Setting Name="UsersSettings1" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1000</Value>

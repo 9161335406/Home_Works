@@ -11,12 +11,16 @@ namespace Lesson_8_Homework
     internal class Sample02
     {
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             OutputHelpers.PrintInfo(8, "Разумных Игорь Александрович");
-            Console.Title = Properties.Settings.Default.ApplicationName;
-
+#if DEBUG
+            Console.Title = Properties.Settings.Default.ApplicationNameDebug;
+#else
+             Console.Title = Properties.Settings.Default.ApplicationName;
+#endif
             Console.WriteLine(Properties.Settings.Default.UsersSettings1);
+
             Console.WriteLine(Properties.Settings.Default.UsersSettings2);
 
             Properties.Settings.Default.UsersSettings1 = 1000;
@@ -24,10 +28,10 @@ namespace Lesson_8_Homework
             Properties.Settings.Default.Save();
 
             Console.WriteLine(Properties.Settings.Default.UsersSettings1);
-            Console.WriteLine(Properties.Settings.Default.UsersSettings1);
+            Console.WriteLine(Properties.Settings.Default.UsersSettings2);
 
             Console.ReadKey(true);
-            
+
         }
     }
 }

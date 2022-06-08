@@ -34,7 +34,7 @@ namespace Lesson_8_Homework.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Settings[Debug]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Lesson-8_Homework[Debug]")]
         public string ApplicationNameDebug {
             get {
                 return ((string)(this["ApplicationNameDebug"]));
