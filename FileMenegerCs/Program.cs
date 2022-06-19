@@ -93,7 +93,7 @@ namespace FileMenegerCs
 
             if (commandParams.Length > 0)
             {
-                string dir = null;
+                //string dir = null;
 
 
                 switch (commandParams[0])
@@ -122,52 +122,205 @@ namespace FileMenegerCs
                         }
                         break;
 
-                    case "copy":
+                    case "copyDir":
                         {
-                           
-                        }
-
-                        break;
-
-                    case "cp":
-                        {
-                         
-                        }
-
-                        break;
-
-                    case "del":
-
-                        if (commandParams.Length > 1)
-                        {
-
-                        }
+                            if (commandParams.Length > 2 && Directory.Exists(commandParams[1]))
+                            {
+                                if (CopyDir(commandParams[1], commandParams[2]))
+                                {
+                                    Console.WriteLine($"{commandParams[1]} copied to: {commandParams[2]}");
+                                }
 
                             
-                      
-                       
+                            }
+
+                               
+
+                        }
+
+                        break;
+
+                    case "cpF":
+                        {
+
+                        }
+
+                        break;
+
+                    case "delDir":
+                        {
+                            DelDirectory(commandParams);
+                        }
+
+                        break;
+
+                    case "delF":
+                        {
+                            DelFile(commandParams);
+                        }
+
                         break;
                 }
 
             }
             UpdateConsole();
-        
-        
-        
-        
-        
-        
-        
+
+        }/// <summary>
+         /// Удаление директории
+         /// </summary>
+         /// <param name="commandParams"></param>
+         /// <returns>message</returns>
+        internal static string DelDirectory(string[] commandParams)
+        {
+            string message;
+
+            if (commandParams.Length > 1 && Directory.Exists(commandParams[1]))
+            {
+                Directory.Delete(commandParams[1], true);
+
+                message = "Директория успешно удалена!";
+
+            }
+            else
+
+                message = "Директория не существует";
+
+            return message;
+
+        }/// <summary>
+         /// Удаление файла
+         /// </summary>
+         /// <param name="commandParams"></param>
+         /// <returns>message</returns>
+        internal static string DelFile(string[] commandParams)
+        {
+            string message;
+
+            if (commandParams.Length > 1 && File.Exists(commandParams[1]))
+            {
+                File.Delete(commandParams[1]);
+
+                message = "Файл успешно удален!";
+            }
+            else
+
+                message = "Файл не существует";
+
+            return message;
         }
-        
-        
+        /// <summary>
+        /// Копирование директории
+        /// </summary>
+        /// <param name="initial"></param>
+        /// <param name="assignment"></param>
+        /// <returns></returns>
+        internal static string CopyDir(string initial, string assignment, bool v)
+        {
+            string message;
+
+            if (Directory.Exists(initial))
+
+            {
+                var dir = new DirectoryInfo(initial);
+
+                DirectoryInfo[] dirs = dir.GetDirectories();
+
+                Directory.CreateDirectory(assignment);
+
+                foreach (DirectoryInfo subDir in dirs)
+
+                {
+
+                    string newDestinationDir = Path.Combine(assignment, subDir.Name);
+
+                    CopyDir(subDir.FullName, newDestinationDir);
+
+                }
+
+                message = "Директория успешно скопирована";
+            }
+            else
+                message = "Неверные параметры";
+
+            return message;
+        }
+        /// <summary>
+        /// Копирование файла
+        /// </summary>
+        /// <param name="initial"></param>
+        /// <param name="assignment"></param>
+        /// <returns></returns>
+        internal static string CopyFile(string initial, string assignment)
+        {
+            string message;
+
+            if (File.Exists(initial) && Directory.Exists(assignment))
+            {
+                FileInfo file = new FileInfo(initial);
+
+                string targetFilePath = Path.Combine(assignment, file.Name);
+
+                file.CopyTo(targetFilePath);
+
+                message = "Файл успешно скопирован";
+
+            }
+            else
+
+                message = "Неверные параметры";
+
+               return message;
+        }
 
         /// <summary>
-        /// Отрисовать дерево каталогов
+        /// Перемещение директории
         /// </summary>
-        /// <param name="dir">Директория</param>
-        /// <param name="page">Страница</param>
-        static void DrawTree(DirectoryInfo dir, int page)
+        /// <param name="commandParams"></param>
+        /// <returns></returns>
+        internal static string MoveDir(string[] commandParams)
+        {
+            string message;
+
+            if (Directory.Exists(commandParams[1]) && !Directory.Exists(commandParams[2]))
+            {
+                Directory.Move(commandParams[1], commandParams[2]);
+
+                message = "Директория успешно перемещена";
+
+            }
+            else
+
+                message = "Директория не существует";
+
+            return message;
+
+        }
+
+        internal static string MoveFile(string[] commandParams)
+        {
+            string message;
+
+            if (File.Exists(commandParams[1]))
+            {
+
+                FileInfo file = new FileInfo(commandParams[1]);
+
+                string targetFilePath = Path.Combine(commandParams[2], file.Name);
+               
+                file.MoveTo(targetFilePath);
+
+            }
+                message = "Файл успешно перемещен";
+
+                return message;
+        }
+
+            /// <summary>
+            /// Отрисовать дерево каталогов
+            /// </summary>
+            /// <param name="dir">Директория</param>
+            /// <param name="page">Страница</param>
+            static void DrawTree(DirectoryInfo dir, int page)
         {
             StringBuilder tree = new StringBuilder();
             GetTree(tree, dir, "", true);
