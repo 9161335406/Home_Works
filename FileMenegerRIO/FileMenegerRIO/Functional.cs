@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace FileMenegerRIO
 {
-    class Functional
+    public class Functional
     {
         const int WINDOW_HEIGHT = 30;
         const int WINDOW_WIDTH = 120;
         private static string log;
         /// <summary>
-        /// Отрисовываем дерево каталогов и файлов через метод GetTree
+        /// Создаем дерево каталогов и файлов через метод GetTree
         /// </summary>
         /// <param name="tree"></param>
         /// <param name="dir"></param>
@@ -53,6 +53,52 @@ namespace FileMenegerRIO
             for (int i = 0; i < subDirects.Length; i++)
                 GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1);
         }
+        /// <summary>
+        /// Отрисовка дерева каталогов
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="page"></param>
+        public static void DrawTree(DirectoryInfo dir, int page)
+        {
+            StringBuilder tree = new StringBuilder();
+            GetTree(tree, dir, "", true);
+            Decoration.DrawWindow(0, 0, WINDOW_WIDTH, 18);
+            GetTree(tree, dir, "", true);
+            Decoration.DrawWindow(0, 0, WINDOW_WIDTH, 18);
+            (int currentLeft, int currentTop) = Decoration.GetCursorPosition();
+            int pageLines = 16;
+            string[] lines = tree.ToString().Split(new char[] { '\n' });
+            Console.WriteLine(lines);
+
+        }
+        public static string MoveDirOrFile(string[] commandParams)
+        {
+            string message;
+
+            if (File.Exists(commandParams[1]))
+            {
+                FileInfo file = new FileInfo(commandParams[1]);
+
+                string targetFilePath = Path.Combine(commandParams[2], file.Name);
+
+                file.MoveTo(targetFilePath);
+
+                message = "Файл успешно перемещен";
+            }
+            else if (Directory.Exists(commandParams[1]) && !Directory.Exists(commandParams[2]))
+            {
+                Directory.Move(commandParams[1], commandParams[2]);
+
+                message = "Директория успешно перемещена";
+            }
+            else
+
+                message = "Директория/файл не существует";
+
+            return message;
+        }
+
+
 
         /// <summary>
         /// Реализован метод удаления файлов
@@ -284,5 +330,5 @@ namespace FileMenegerRIO
 }
 
 
-    
+
 

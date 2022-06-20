@@ -73,7 +73,7 @@ namespace FileMenegerRIO
 
         public static void Help()
         {
-            Decoration.DrawWindow(0, 0, WINDOW_WIDTH, 18);
+            DrawWindow(0, 0, WINDOW_WIDTH, 18);
             (int x, int y) = Decoration.GetCursorPosition();
             Console.SetCursorPosition(x + 1, y + 1);
             Console.Write("Примеры использования команд:");
