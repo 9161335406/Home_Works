@@ -142,42 +142,114 @@ namespace FileMenegerRIO
 
                     case "mv":
 
-                   if (commandParams.Length > 1 && Directory.Exists(commandParams[1]))
+                        if (commandParams.Length > 1 && Directory.Exists(commandParams[1]))
 
-                   if (commandParams.Length == 3)
-                   {
-                       Console.SetCursorPosition(2, + 2);
+                            if (commandParams.Length == 3)
+                            {
+                                Console.SetCursorPosition(2, +2);
 
-                      if (Directory.Exists(commandParams[1]))
-                      {
+                                if (Directory.Exists(commandParams[1]))
+                                {
 
-                         DirectoryInfo dirInfo = new DirectoryInfo(commandParams[1]);
+                                    DirectoryInfo dirInfo = new DirectoryInfo(commandParams[1]);
 
-                         commandParams[2] = commandParams[2] + "\\" + dirInfo.Name;
+                                    commandParams[2] = commandParams[2] + "\\" + dirInfo.Name;
 
-                         Console.WriteLine(Functional.MoveDirOrFile(commandParams));
+                                    Console.WriteLine(Functional.MoveDirOrFile(commandParams));
 
-                      }
+                                }
 
-                      if (File.Exists(commandParams[1]) && Directory.Exists(commandParams[2]))
-                      {
+                                if (File.Exists(commandParams[1]) && Directory.Exists(commandParams[2]))
+                                {
 
-                        Console.WriteLine(Functional.MoveDirOrFile(commandParams));
+                                    Console.WriteLine(Functional.MoveDirOrFile(commandParams));
 
-                      }
-                      else
-                   
-                        UpdateConsole();
-                   }
+                                }
+                                else
+
+                                    UpdateConsole();
+                            }
                         break;
+
+                    case "":
+
+                    case "rm":
+                        if (commandParams.Length > 1 && File.Exists(commandParams[1]))
+                        {
+                            Functional.DeleteFile(commandParams[1]);
+                        }
+                        break;
+                    case "file":
+                        if (commandParams.Length > 1 && File.Exists(commandParams[1]))
+                        {
+                            Functional.FileInfo(commandParams[1]);
+                        }
+                        break;
+                    case "cat":
+                        if (commandParams.Length > 1 && File.Exists(commandParams[1]))
+                        {
+                            Functional.CatFile(commandParams[1]);
+                        }
+
+                        break;
+                    case "dir":
+                        if (commandParams.Length > 1 && Directory.Exists(commandParams[1]))
+                        {
+                            Functional.DirInfo(commandParams[1]);
+                        }
+
+                        break;
+                    case "cp":
+                        if (commandParams.Length > 2 && File.Exists(commandParams[1]))
+                        {
+                            Functional.CopyFile(commandParams[1], commandParams[2]);
+                        }
+
+                        break;
+                    case "cpdir":
+                        if (commandParams.Length > 2 && Directory.Exists(commandParams[1]))
+                        {
+                            if (Functional.CopyDir(commandParams[1], commandParams[2]))
+                            {
+                                Console.WriteLine($"{commandParams[1]} copied to: {commandParams[2]}");
+                            }
+
+                        }
+
+                        break;
+                    case "deldir":
+                        if (commandParams.Length > 1 && Directory.Exists(commandParams[1]))
+                        {
+                            Functional.DelDir(commandParams[1], false);
+                        }
+                        if (commandParams.Length > 2 && commandParams[1] == "-r" && Directory.Exists(commandParams[2]))
+                        {
+                            Functional.DelDir(commandParams[2], true);
+                        }
+
+                        break;
+                    case "help":
+                        if (commandParams.Length == 1)
+                        {
+                            Decoration.Help();
+                        }
+
+                        break;
+                    default:
+
+                        break;
+
+
+
+
 
                 }
 
-               
+
             }
 
         }
 
     }
 }
-  
+

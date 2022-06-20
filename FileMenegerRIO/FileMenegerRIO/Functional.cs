@@ -66,7 +66,6 @@ namespace FileMenegerRIO
             GetTree(tree, dir, "", true);
             Decoration.DrawWindow(0, 0, WINDOW_WIDTH, 18);
             (int currentLeft, int currentTop) = Decoration.GetCursorPosition();
-            int pageLines = 16;
             string[] lines = tree.ToString().Split(new char[] { '\n' });
             Console.WriteLine(lines);
 
@@ -191,7 +190,6 @@ namespace FileMenegerRIO
             {
 
                 throw;
-                log += $"{Environment.NewLine} Не Успешно";
             }
             finally
             {
@@ -219,7 +217,6 @@ namespace FileMenegerRIO
             catch (Exception)
             {
                 throw;
-                log += $"{Environment.NewLine} Не Успешно";
             }
             finally
             {
@@ -283,13 +280,11 @@ namespace FileMenegerRIO
                     CopyDir(folder, dest);
                 }
                 return true;// Console.WriteLine($"{sourceFolder} copied to: {destFolder}");
-                log += $"{Environment.NewLine} Успешно";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return false;
-                log += $"{Environment.NewLine} Не Успешно";
 
             }
             finally
