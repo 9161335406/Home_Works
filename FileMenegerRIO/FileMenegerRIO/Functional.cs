@@ -113,7 +113,7 @@ namespace FileMenegerRIO
                 Console.WriteLine(path);
                 Console.SetCursorPosition(1, 20);
                 Console.WriteLine("Deleted");
-                log += $"{Environment.NewLine} Процесс удаления произошел успешен";
+                log += $"{Environment.NewLine} Процесс удаления произошел успешено";
             }
             catch (Exception ex)
             {
