@@ -238,18 +238,9 @@ namespace FileMenegerRIO
                     default:
 
                         break;
-
-
-
-
-
                 }
-
-
             }
-
         }
-
     }
 }
 
