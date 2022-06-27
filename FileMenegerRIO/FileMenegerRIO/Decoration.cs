@@ -80,7 +80,7 @@ namespace FileMenegerRIO
             Console.SetCursorPosition(x + 1, y + 2);
             Console.Write("cd C:\\Source - изменение текущего каталога");
             Console.SetCursorPosition(x + 1, y + 3);
-            Console.Write("ls C:\\Source -p n - вывод дерева подкаталогов и файлов постранично, где n- номер страницы");
+            Console.Write("ls C:\\Souce -p n - вывод дерева подкаталогов и файлов постранично, где n- номер страницы");
             Console.SetCursorPosition(x + 1, y + 4);
             Console.Write("rm C:\\Source\\filename.ext - удаление файла ");
             Console.SetCursorPosition(x + 1, y + 5);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileManager.Utils;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,6 +54,15 @@ namespace FileMenegerRIO
             for (int i = 0; i < subDirects.Length; i++)
                 GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1);
         }
+
+        public static string GetShortPath(string path)
+        {
+            StringBuilder shortPathName = new StringBuilder((int)API.MAX_PATH);
+
+            API.GetShortPathName(path, shortPathName, API.MAX_PATH);
+            return shortPathName.ToString();
+        }
+
         /// <summary>
         /// Отрисовка дерева каталогов
         /// </summary>
@@ -69,7 +79,11 @@ namespace FileMenegerRIO
             string[] lines = tree.ToString().Split(new char[] { '\n' });
             Console.WriteLine(lines);
 
-        }
+        }/// <summary>
+        /// Реализован метод перемещения директории/файла.
+        /// </summary>
+        /// <param name="commandParams"></param>
+        /// <returns></returns>
         public static string MoveDirOrFile(string[] commandParams)
         {
             string message;
@@ -96,8 +110,6 @@ namespace FileMenegerRIO
 
             return message;
         }
-
-
 
         /// <summary>
         /// Реализован метод удаления файлов
