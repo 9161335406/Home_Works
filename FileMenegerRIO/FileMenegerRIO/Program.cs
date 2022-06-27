@@ -14,7 +14,7 @@ namespace FileMenegerRIO
         const int WINDOW_WIDTH = 120;
 
         private static string currentDir = Directory.GetCurrentDirectory();
-        private static readonly string shortPathName;
+        
 
         public static void Main(string[] args)
         {
@@ -30,7 +30,7 @@ namespace FileMenegerRIO
 
             Decoration.DrawWindow(0, 18, WINDOW_WIDTH, 8);
 
-            Functional.GetShortPath(shortPathName);
+           // Functional.GetShortPath(shortPathName);
 
             UpdateConsole();
 
@@ -239,6 +239,7 @@ namespace FileMenegerRIO
 
                         break;
                     default:
+                        UpdateConsole();
 
                         break;
 

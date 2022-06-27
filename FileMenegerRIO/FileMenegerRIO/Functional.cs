@@ -49,12 +49,14 @@ namespace FileMenegerRIO
                     tree.Append($"{indent}├─{subFiles[i].Name}\n");
                 }
             }
-
             DirectoryInfo[] subDirects = dir.GetDirectories();
             for (int i = 0; i < subDirects.Length; i++)
                 GetTree(tree, subDirects[i], indent, i == subDirects.Length - 1);
-        }
-
+        }/// <summary>
+        /// Отображение сокращённой строки
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static string GetShortPath(string path)
         {
             StringBuilder shortPathName = new StringBuilder((int)API.MAX_PATH);

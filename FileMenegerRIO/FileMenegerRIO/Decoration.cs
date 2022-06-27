@@ -61,7 +61,10 @@ namespace FileMenegerRIO
             Console.SetCursorPosition(x + 1, y + height / 2);
             Console.Write($"{dir}>");
         }
-
+        /// <summary>
+        /// Вспомогательный метод вернуть текущую позицию курсора.
+        /// </summary>
+        /// <returns></returns>
         public static (int left, int top) GetCursorPosition()
         {
             return (Console.CursorLeft, Console.CursorTop);
